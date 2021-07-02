@@ -132,3 +132,33 @@ Response
     }
 }
 ```
+
+# Updating a single document with partial props
+POST http://localhost:9200/index-study/people/TSG9aHoB_wW61CPyiUqm
+
+Body
+```json
+{
+    "doc": {
+        "nome": "Tadeu Tupinambá"
+    }
+}
+```
+
+Response
+```json
+{
+    "_index": "index-study",
+    "_type": "people",
+    "_id": "TSG9aHoB_wW61CPyiUqm",
+    "_version": 2,
+    "result": "updated",
+    "_shards": {
+        "total": 1,
+        "successful": 1,
+        "failed": 0
+    },
+    "_seq_no": 4,
+    "_primary_term": 1
+}
+```
