@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "57c50136-6310-4f32-916d-24896952363c",
+		"name": "😎 Elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create document on index and type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Branco\",\n    \"likes\": [ \"exercicios\", \"academia\", \"esporte\", \"tecnologia\"],\n    \"city\": \"São José do rio preto\",\n    \"state\": \"SP\",  \n    \"degree\": \"Ciência da Computação\",\n    \"contry\": \"Brazil\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/index-study/people",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"index-study",
+						"people"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update replicas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"index\": {\n        \"number_of_replicas\": 0\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/index-study/_settings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"index-study",
+						"_settings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting a count of documents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/index-study/people/_count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"index-study",
+						"people",
+						"_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create document on index and type Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Márcio\",\n    \"likes\": [ \"cagar no mato\", \"beber\", \"esporte\", \"futebol\"],\n    \"city\": \"Araxá\",\n    \"state\": \"SP\",  \n    \"degree\": \"Engenharia de Produção\",\n    \"contry\": \"Brazil\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/index-study/people/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"index-study",
+						"people",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getting document and filtering",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/index-study/people/_search?q=araxá",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"index-study",
+						"people",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "araxá"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating a single document",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"doc\": {\n        \"nome\": \"Tadeu Tupinambá\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/index-study/people/TSG9aHoB_wW61CPyiUqm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"index-study",
+						"people",
+						"TSG9aHoB_wW61CPyiUqm"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
