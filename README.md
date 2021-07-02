@@ -1,8 +1,13 @@
-docker network create es-net --driver=bridge
+# Elasticsearch playground
 
-docker run -d --name elasticsearch --net es-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.13.2
+## Cheatsheet
+> https://elasticsearch-cheatsheet.jolicode.com/
 
-docker run --name kibana --net es-net -p 5601:5601 -e "ELASTICSEARCH_HOSTS=http://elasticsearch:9200" docker.elastic.co/kibana/kibana:7.13.2
+`docker network create es-net --driver=bridge`
+
+`docker run -d --name elasticsearch --net es-net -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.13.2`
+
+`docker run --name kibana --net es-net -p 5601:5601 -e "ELASTICSEARCH_HOSTS=http://elasticsearch:9200" docker.elastic.co/kibana/kibana:7.13.2`
 
 ---
 
