@@ -85,6 +85,50 @@ Response
         "failed": 0
     }
 }
+```
 
+# Getting documents and filtering
 
+GET http://localhost:9200/index-study/people/_search?q=Tadeu
+
+Response
+```json
+{
+    "took": 18,
+    "timed_out": false,
+    "_shards": {
+        "total": 1,
+        "successful": 1,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 1,
+            "relation": "eq"
+        },
+        "max_score": 1.2039728,
+        "hits": [
+            {
+                "_index": "index-study",
+                "_type": "people",
+                "_id": "TSG9aHoB_wW61CPyiUqm",
+                "_score": 1.2039728,
+                "_source": {
+                    "name": "Tadeu",
+                    "likes": [
+                        "exercicios",
+                        "academia",
+                        "esporte",
+                        "tecnologia"
+                    ],
+                    "city": "Araxá",
+                    "state": "MG",
+                    "degree": "Ciência da Computação",
+                    "contry": "Brazil"
+                }
+            }
+        ]
+    }
+}
 ```
